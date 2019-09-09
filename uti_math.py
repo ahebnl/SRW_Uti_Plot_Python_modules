@@ -692,19 +692,20 @@ def xcut_ar_2d(_data, _x_range, _y_range, _yc): #AH04092019
 #****************************************************************************
 def image_line_cut(_data, _allrange, _ang, _shift_y): #AH04092019
     """
-    Function to get the 2D array/image cutted data along the line 'y = tan(_ang)*x + _shify_y/cos(_ang)'
+    Function to get the 2D array/image cutted data along the line 'y = tan(_ang)*x + _shify_y'
     : param _data: 1D array / image
     : param _allrange: tuple with 9 value: (e0, e1, ne, x0, x1, nx, y0, y1, ny) to define the 2D array(image) size and shape before rotation.
     : param _ang: rotation angle in degree. positive value rotate the image clockwise, negative value rotate the image countclockwise.
-    : param _shift_y: the length of perpendiculars between the cutted line to the new axis X after rotation
+    : param _shift_y: the y shift value before the rotation
     : return 1D array and the new x_range
     """
     # rotate the image by _ang and get the new 2d image data and the new allrange
+    
     data, allrange = rotate_ar_2d(_data, _allrange, _ang)
-
+    
     x_range = list(allrange)[3:6]
     y_range = list(allrange)[6:]
-    yc = _shift_y
+    yc = _shift_y * all_range[6]/_allrange[6]*np.cos(np.radians(_ang))  # the new y shift value after the rotation
     arCutx = xcut_ar_2d(data, x_range, y_range, yc)
     return arCutx, x_range
 
