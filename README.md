@@ -13,3 +13,10 @@ python SRWLIB_ExampleViewDataFile.py -f test_data.dat -j -s log10
 ```
 # ![Sirepo](https://github.com/ahebnl/SRW_Uti_Plot_Python_modules/blob/master/images/figure_2_scale.png)
 Several scale options can be used in plots (linear, log, log2, log10).
+
+### 3, plot a SRW data file with color 
+```bash
+python SRWLIB_ExampleViewDataFile.py -f test_data.dat -j -s log10 -c jet
+```
+# ![Sirepo](https://github.com/ahebnl/SRW_Uti_Plot_Python_modules/blob/master/images/figure_3_scale_color.png)
+Several colormap options can be used in plots (Greys_r, afmhot, coolwarm, jet, PiYG....).
