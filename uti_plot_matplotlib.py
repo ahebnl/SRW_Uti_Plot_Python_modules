@@ -179,7 +179,7 @@ class Backend(object):
             except:
                 print('Cannot resize the image - scipy.ndimage.zoom() cannot be imported.')
                 pass
-        print('anhe allrange in matplot:', allrange)
+
         if _rotation_angle: # when _rotation_angle is true, then rotate the image data according to angle. #AH04092019
             try:
                 data, allrange = uti_math.rotate_ar_2d(data, allrange, _rotation_angle)
